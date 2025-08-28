@@ -1,0 +1,99 @@
+import React, { useState, useEffect } from 'react'
+import { RefreshCw, Bot, BookOpen } from 'lucide-react'
+import { useHistory } from '../hooks/useHistory'
+import HistoryItem from './HistoryItem'
+import LoadingSpinner from './LoadingSpinner'
+
+const HistoryTab = () => {
+  const [timeRange, setTimeRange] = useState('24h')
+  const { history, loading, loadHistory, summarizeHistory, summary, summarizing } = useHistory()
+
+  useEffect(() => {
+    loadHistory(timeRange)
+  }, [timeRange])
+
+  const timeRangeOptions = [
+    { value: '1h', label: 'Last Hour' },
+    { value: '24h', label: 'Today' },
+    { value: '7d', label: 'Last 7 Days' },
+    { value: '30d', label: 'Last 30 Days' },
+  ]
+
+  return (
+    <div className="flex flex-col h-full p-6 bg-white">
+      {/* Controls */}
+      <div className="flex gap-3 mb-6">
+        <select
+          value={timeRange}
+          onChange={(e) => setTimeRange(e.target.value)}
+          className="flex-1 px-4 py-3 border border-gray-300 rounded-xl text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 focus:outline-none transition-all bg-gray-50 hover:bg-white"
+          aria-label="Time range selector"
+        >
+          {timeRangeOptions.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        
+        <button
+          onClick={() => loadHistory(timeRange)}
+          disabled={loading}
+          className="px-6 py-3 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+        >
+          <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
+          Refresh
+        </button>
+      </div>
+
+      {/* History List */}
+      {/* History List */}
+      <div className="flex-1 overflow-y-auto mb-6">
+        {loading ? (
+          <div className="flex items-center justify-center h-32">
+            <LoadingSpinner text="Loading history..." />
+          </div>
+        ) : history.length === 0 ? (
+          <div className="flex flex-col items-center justify-center h-32 text-gray-500">
+            <BookOpen size={48} className="mb-3 opacity-50" />
+            <p className="text-center">
+              No history found for the selected time range.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {history.map((item, index) => (
+              <HistoryItem key={`${item.url}-${index}`} item={item} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Summary Section */}
+      <div className="border-t border-gray-100 pt-6">
+        <button
+          onClick={() => summarizeHistory(history)}
+          disabled={summarizing || history.length === 0}
+          className="w-full mb-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl text-sm font-medium hover:from-purple-700 hover:to-blue-700 focus:ring-2 focus:ring-purple-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        >
+          <Bot size={16} />
+          {summarizing ? 'Generating Summary...' : 'Generate AI Summary'}
+        </button>
+        
+        <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 min-h-[80px] flex items-center justify-center text-sm text-gray-700 leading-relaxed border border-gray-100">
+          {summarizing ? (
+            <LoadingSpinner text="Analyzing your browsing patterns..." />
+          ) : summary ? (
+            <p className="text-center">{summary}</p>
+          ) : (
+            <p className="text-center text-gray-500">
+              Generate an AI-powered summary of your browsing activity to discover patterns and insights.
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default HistoryTab
