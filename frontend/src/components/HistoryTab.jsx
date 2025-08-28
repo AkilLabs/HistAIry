@@ -20,13 +20,13 @@ const HistoryTab = () => {
   ]
 
   return (
-    <div className="flex flex-col h-full p-5">
+    <div className="flex flex-col h-full p-6 bg-white">
       {/* Controls */}
-      <div className="flex gap-3 mb-5">
+      <div className="flex gap-3 mb-6">
         <select
           value={timeRange}
           onChange={(e) => setTimeRange(e.target.value)}
-          className="flex-1 px-3 py-2 border-2 border-gray-200 rounded-lg text-sm focus:border-primary-500 focus:outline-none transition-colors"
+          className="flex-1 px-4 py-3 border border-gray-300 rounded-xl text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 focus:outline-none transition-all bg-gray-50 hover:bg-white"
           aria-label="Time range selector"
         >
           {timeRangeOptions.map(option => (
@@ -39,17 +39,16 @@ const HistoryTab = () => {
         <button
           onClick={() => loadHistory(timeRange)}
           disabled={loading}
-          className="px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg text-sm font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+          className="px-6 py-3 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
-          <div className="flex items-center gap-2">
-            <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
-            Load
-          </div>
+          <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
+          Refresh
         </button>
       </div>
 
       {/* History List */}
-      <div className="flex-1 overflow-y-auto mb-5">
+      {/* History List */}
+      <div className="flex-1 overflow-y-auto mb-6">
         {loading ? (
           <div className="flex items-center justify-center h-32">
             <LoadingSpinner text="Loading history..." />
@@ -62,7 +61,7 @@ const HistoryTab = () => {
             </p>
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-2">
             {history.map((item, index) => (
               <HistoryItem key={`${item.url}-${index}`} item={item} />
             ))}
@@ -71,26 +70,24 @@ const HistoryTab = () => {
       </div>
 
       {/* Summary Section */}
-      <div className="border-t border-gray-200 pt-5">
+      <div className="border-t border-gray-100 pt-6">
         <button
           onClick={() => summarizeHistory(history)}
           disabled={summarizing || history.length === 0}
-          className="w-full mb-3 px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg text-sm font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+          className="w-full mb-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl text-sm font-medium hover:from-purple-700 hover:to-blue-700 focus:ring-2 focus:ring-purple-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
-          <div className="flex items-center justify-center gap-2">
-            <Bot size={14} />
-            {summarizing ? 'Generating...' : 'AI Summary'}
-          </div>
+          <Bot size={16} />
+          {summarizing ? 'Generating Summary...' : 'Generate AI Summary'}
         </button>
         
-        <div className="bg-gray-50 rounded-lg p-4 min-h-[60px] flex items-center justify-center text-sm text-gray-600 leading-relaxed">
+        <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 min-h-[80px] flex items-center justify-center text-sm text-gray-700 leading-relaxed border border-gray-100">
           {summarizing ? (
-            <LoadingSpinner text="Generating AI summary..." />
+            <LoadingSpinner text="Analyzing your browsing patterns..." />
           ) : summary ? (
-            <p>{summary}</p>
+            <p className="text-center">{summary}</p>
           ) : (
-            <p className="text-center text-gray-400">
-              Click "AI Summary" to get an intelligent summary of your browsing history.
+            <p className="text-center text-gray-500">
+              Generate an AI-powered summary of your browsing activity to discover patterns and insights.
             </p>
           )}
         </div>

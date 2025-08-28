@@ -8,15 +8,15 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f2ff',
-          100: '#e5e9ff',
-          500: '#667eea',
-          600: '#5a6fd8',
-          700: '#4f5bc7',
+          50: '#eff6ff',
+          100: '#dbeafe',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
         },
         secondary: {
-          500: '#764ba2',
-          600: '#6b4190',
+          500: '#8b5cf6',
+          600: '#7c3aed',
         }
       },
       animation: {

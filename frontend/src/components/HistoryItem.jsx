@@ -12,17 +12,17 @@ const HistoryItem = ({ item }) => {
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 hover:border-primary-300">
-      <h4 className="text-sm font-semibold text-gray-700 mb-2 line-clamp-2">
+    <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md hover:border-blue-200 transition-all duration-200 group">
+      <h4 className="text-sm font-medium text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-900">
         {item.title || 'No title'}
       </h4>
       
       <button
         onClick={handleClick}
-        className="flex items-center gap-2 text-xs text-primary-600 hover:text-primary-700 transition-colors group w-full text-left"
+        className="flex items-center gap-2 text-xs text-gray-600 hover:text-blue-600 transition-colors group/link w-full text-left"
       >
-        <span className="truncate flex-1">{item.url}</span>
-        <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+        <span className="truncate flex-1 font-mono">{item.url}</span>
+        <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 text-blue-500" />
       </button>
     </div>
   )

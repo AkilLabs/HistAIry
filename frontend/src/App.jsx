@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { History, MessageCircle } from 'lucide-react'
-import Header from './components/Header'
+import { History, , Clock } from 'lucide-react'
 import HistoryTab from './components/HistoryTab'
 import ChatTab from './components/ChatTab'
 
@@ -8,51 +7,54 @@ function App() {
   const [activeTab, setActiveTab] = useState('history')
 
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-br from-primary-500 to-secondary-500">
-      <div className="flex flex-col h-full bg-white">
-        <Header />
-        
-        {/* Main content area with sidebar navigation */}
-        <div className="flex-1 flex overflow-hidden">
-          {/* Main content */}
-          <div className="flex-1 overflow-hidden">
-            {activeTab === 'history' && <HistoryTab />}
-            {activeTab === 'chat' && <ChatTab />}
+    <div className="h-screen flex flex-col bg-gray-50">
+      {/* Modern Header with Navigation */}
+      <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="flex items-center justify-between px-6 py-4">
+          {/* Logo/Title */}
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <Clock size={18} className="text-white" />
+            </div>
+            <div>
+              <h1 className="text-lg font-semibold text-gray-900">History Assistant</h1>
+              <p className="text-xs text-gray-500">Your intelligent browsing companion</p>
+            </div>
           </div>
           
-          {/* Right sidebar navigation */}
-          <div className="w-20 bg-gray-50 border-l border-gray-200 flex flex-col">
+          {/* Top Right Navigation */}
+          <nav className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
             <button
-              className={`flex-1 py-6 px-2 text-xs font-medium transition-all duration-300 relative flex flex-col items-center justify-center gap-2 ${
+              className={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-2 ${
                 activeTab === 'history'
-                  ? 'text-primary-600 bg-white border-l-2 border-primary-500'
-                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+                  ? 'bg-white text-blue-600 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
               onClick={() => setActiveTab('history')}
             >
-              <History size={20} />
-              <span className="text-center leading-tight">History</span>
-              {activeTab === 'history' && (
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500" />
-              )}
+              <History size={16} />
+              History
             </button>
             
             <button
-              className={`flex-1 py-6 px-2 text-xs font-medium transition-all duration-300 relative flex flex-col items-center justify-center gap-2 ${
+              className={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-2 ${
                 activeTab === 'chat'
-                  ? 'text-primary-600 bg-white border-l-2 border-primary-500'
-                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+                  ? 'bg-white text-blue-600 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
               onClick={() => setActiveTab('chat')}
             >
-              <MessageCircle size={20} />
-              <span className="text-center leading-tight">Chat</span>
-              {activeTab === 'chat' && (
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500" />
-              )}
+              <MessageCircle size={16} />
+              Chat
             </button>
-          </div>
+          </nav>
         </div>
+      </div>
+      
+      {/* Main Content */}
+      <div className="flex-1 overflow-hidden">
+        {activeTab === 'history' && <HistoryTab />}
+        {activeTab === 'chat' && <ChatTab />}
       </div>
     </div>
   )
