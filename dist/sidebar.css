@@ -514,6 +514,9 @@ video {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
+.ml-1 {
+  margin-left: 0.25rem;
+}
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -570,6 +573,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.max-w-\[100\%\] {
+  max-width: 100%;
 }
 .max-w-\[80\%\] {
   max-width: 80%;
@@ -707,6 +713,10 @@ video {
   --tw-border-opacity: 1;
   border-top-color: rgb(166 255 221 / var(--tw-border-opacity, 1));
 }
+.bg-\[\#a6ffdd\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(166 255 221 / var(--tw-bg-opacity, 1));
+}
 .bg-accent {
   --tw-bg-opacity: 1;
   background-color: rgb(166 255 221 / var(--tw-bg-opacity, 1));
@@ -733,26 +743,10 @@ video {
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
-.from-blue-600 {
-  --tw-gradient-from: #2563eb var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(37 99 235 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-.from-gray-50 {
-  --tw-gradient-from: #f9fafb var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(249 250 251 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
 .from-primary-500 {
   --tw-gradient-from: #40f3b9 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(64 243 185 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-.to-blue-50 {
-  --tw-gradient-to: #eff6ff var(--tw-gradient-to-position);
-}
-.to-purple-600 {
-  --tw-gradient-to: #9333ea var(--tw-gradient-to-position);
 }
 .to-secondary-500 {
   --tw-gradient-to: #a6ffdd var(--tw-gradient-to-position);
@@ -904,6 +898,10 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+.backdrop-blur-3xl {
+  --tw-backdrop-blur: blur(64px);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 .transition-all {
   transition-property: all;
