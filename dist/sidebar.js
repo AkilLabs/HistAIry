@@ -53,8 +53,8 @@ var __async = (__this, __arguments, generator) => {
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
-var require_popup = __commonJS({
-  "popup.js"(exports) {
+var require_sidebar = __commonJS({
+  "sidebar.js"(exports) {
     (function polyfill() {
       const relList = document.createElement("link").relList;
       if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -8143,41 +8143,39 @@ var require_popup = __commonJS({
     };
     function App() {
       const [activeTab, setActiveTab] = reactExports.useState("history");
-      return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full flex flex-col bg-gradient-to-br from-primary-500 to-secondary-500", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full bg-white", children: [
+      return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-screen flex flex-col bg-gradient-to-br from-primary-500 to-secondary-500", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full bg-white", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex bg-gray-50 border-b border-gray-200", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "button",
-            {
-              className: `flex-1 py-4 px-4 text-sm font-medium transition-all duration-300 relative ${activeTab === "history" ? "text-primary-600 bg-white" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`,
-              onClick: () => setActiveTab("history"),
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(History, { size: 16 }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "History" })
-                ] }),
-                activeTab === "history" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500" })
-              ]
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "button",
-            {
-              className: `flex-1 py-4 px-4 text-sm font-medium transition-all duration-300 relative ${activeTab === "chat" ? "text-primary-600 bg-white" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`,
-              onClick: () => setActiveTab("chat"),
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { size: 16 }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Chat" })
-                ] }),
-                activeTab === "chat" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500" })
-              ]
-            }
-          )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 overflow-hidden", children: [
-          activeTab === "history" && /* @__PURE__ */ jsxRuntimeExports.jsx(HistoryTab, {}),
-          activeTab === "chat" && /* @__PURE__ */ jsxRuntimeExports.jsx(ChatTab, {})
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex overflow-hidden", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 overflow-hidden", children: [
+            activeTab === "history" && /* @__PURE__ */ jsxRuntimeExports.jsx(HistoryTab, {}),
+            activeTab === "chat" && /* @__PURE__ */ jsxRuntimeExports.jsx(ChatTab, {})
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-20 bg-gray-50 border-l border-gray-200 flex flex-col", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                className: `flex-1 py-6 px-2 text-xs font-medium transition-all duration-300 relative flex flex-col items-center justify-center gap-2 ${activeTab === "history" ? "text-primary-600 bg-white border-l-2 border-primary-500" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`,
+                onClick: () => setActiveTab("history"),
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(History, { size: 20 }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-center leading-tight", children: "History" }),
+                  activeTab === "history" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500" })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                className: `flex-1 py-6 px-2 text-xs font-medium transition-all duration-300 relative flex flex-col items-center justify-center gap-2 ${activeTab === "chat" ? "text-primary-600 bg-white border-l-2 border-primary-500" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`,
+                onClick: () => setActiveTab("chat"),
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { size: 20 }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-center leading-tight", children: "Chat" }),
+                  activeTab === "chat" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500" })
+                ]
+              }
+            )
+          ] })
         ] })
       ] }) });
     }
@@ -8187,4 +8185,4 @@ var require_popup = __commonJS({
     );
   }
 });
-export default require_popup();
+export default require_sidebar();

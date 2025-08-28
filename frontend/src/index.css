@@ -48,14 +48,13 @@
 
 /* Extension specific styles */
 body {
-  width: 400px;
-  height: 600px;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 #root {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }

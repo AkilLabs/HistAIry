@@ -511,8 +511,8 @@ video {
 .left-0 {
   left: 0px;
 }
-.right-0 {
-  right: 0px;
+.top-0 {
+  top: 0px;
 }
 .mb-1 {
   margin-bottom: 0.25rem;
@@ -538,9 +538,6 @@ video {
 .inline-flex {
   display: inline-flex;
 }
-.h-0\.5 {
-  height: 0.125rem;
-}
 .h-3 {
   height: 0.75rem;
 }
@@ -553,6 +550,9 @@ video {
 .h-full {
   height: 100%;
 }
+.h-screen {
+  height: 100vh;
+}
 .max-h-20 {
   max-height: 5rem;
 }
@@ -561,6 +561,12 @@ video {
 }
 .min-h-\[60px\] {
   min-height: 60px;
+}
+.w-0\.5 {
+  width: 0.125rem;
+}
+.w-20 {
+  width: 5rem;
 }
 .w-3 {
   width: 0.75rem;
@@ -679,6 +685,12 @@ video {
 .border-b {
   border-bottom-width: 1px;
 }
+.border-l {
+  border-left-width: 1px;
+}
+.border-l-2 {
+  border-left-width: 2px;
+}
 .border-t {
   border-top-width: 1px;
 }
@@ -692,6 +704,10 @@ video {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+.border-primary-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(102 126 234 / var(--tw-border-opacity, 1));
 }
 .border-t-primary-500 {
   --tw-border-opacity: 1;
@@ -711,6 +727,9 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
@@ -739,6 +758,10 @@ video {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -755,9 +778,9 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .pt-5 {
   padding-top: 1.25rem;
@@ -788,6 +811,9 @@ video {
 }
 .leading-relaxed {
   line-height: 1.625;
+}
+.leading-tight {
+  line-height: 1.25;
 }
 .text-gray-400 {
   --tw-text-opacity: 1;
@@ -862,6 +888,21 @@ video {
   transition-duration: 300ms;
 }
 
+/* Custom utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -893,16 +934,15 @@ video {
 
 /* Extension specific styles */
 body {
-  width: 400px;
-  height: 600px;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 #root {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .focus-within\:border-primary-500:focus-within {

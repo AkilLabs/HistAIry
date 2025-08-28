@@ -8,51 +8,50 @@ function App() {
   const [activeTab, setActiveTab] = useState('history')
 
   return (
-    <div className="h-full flex flex-col bg-gradient-to-br from-primary-500 to-secondary-500">
+    <div className="h-screen flex flex-col bg-gradient-to-br from-primary-500 to-secondary-500">
       <div className="flex flex-col h-full bg-white">
         <Header />
         
-        {/* Tabs */}
-        <div className="flex bg-gray-50 border-b border-gray-200">
-          <button
-            className={`flex-1 py-4 px-4 text-sm font-medium transition-all duration-300 relative ${
-              activeTab === 'history'
-                ? 'text-primary-600 bg-white'
-                : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
-            }`}
-            onClick={() => setActiveTab('history')}
-          >
-            <div className="flex items-center justify-center gap-2">
-              <History size={16} />
-              <span>History</span>
-            </div>
-            {activeTab === 'history' && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500" />
-            )}
-          </button>
+        {/* Main content area with sidebar navigation */}
+        <div className="flex-1 flex overflow-hidden">
+          {/* Main content */}
+          <div className="flex-1 overflow-hidden">
+            {activeTab === 'history' && <HistoryTab />}
+            {activeTab === 'chat' && <ChatTab />}
+          </div>
           
-          <button
-            className={`flex-1 py-4 px-4 text-sm font-medium transition-all duration-300 relative ${
-              activeTab === 'chat'
-                ? 'text-primary-600 bg-white'
-                : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
-            }`}
-            onClick={() => setActiveTab('chat')}
-          >
-            <div className="flex items-center justify-center gap-2">
-              <MessageCircle size={16} />
-              <span>Chat</span>
-            </div>
-            {activeTab === 'chat' && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500" />
-            )}
-          </button>
-        </div>
-
-        {/* Tab Content */}
-        <div className="flex-1 overflow-hidden">
-          {activeTab === 'history' && <HistoryTab />}
-          {activeTab === 'chat' && <ChatTab />}
+          {/* Right sidebar navigation */}
+          <div className="w-20 bg-gray-50 border-l border-gray-200 flex flex-col">
+            <button
+              className={`flex-1 py-6 px-2 text-xs font-medium transition-all duration-300 relative flex flex-col items-center justify-center gap-2 ${
+                activeTab === 'history'
+                  ? 'text-primary-600 bg-white border-l-2 border-primary-500'
+                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+              }`}
+              onClick={() => setActiveTab('history')}
+            >
+              <History size={20} />
+              <span className="text-center leading-tight">History</span>
+              {activeTab === 'history' && (
+                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500" />
+              )}
+            </button>
+            
+            <button
+              className={`flex-1 py-6 px-2 text-xs font-medium transition-all duration-300 relative flex flex-col items-center justify-center gap-2 ${
+                activeTab === 'chat'
+                  ? 'text-primary-600 bg-white border-l-2 border-primary-500'
+                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+              }`}
+              onClick={() => setActiveTab('chat')}
+            >
+              <MessageCircle size={20} />
+              <span className="text-center leading-tight">Chat</span>
+              {activeTab === 'chat' && (
+                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
