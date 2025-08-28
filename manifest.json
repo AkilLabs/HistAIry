@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Simple History Viewer",
-  "version": "1.0",
-  "description": "Shows recent Chrome history",
-  "permissions": ["history"],
+  "name": "History Assistant - AI Chat & Analytics",
+  "version": "2.0",
+  "description": "AI-powered browsing history viewer with intelligent chat assistant and analytics",
+  "permissions": ["history", "tabs"],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "dist/popup.html",
     "default_icon": {
       "16": "icon.png"
     }
