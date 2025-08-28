@@ -1,5 +1,5 @@
 {
-  "name": "history-extension-scripts",
+  "name": "histairy-scripts",
   "version": "1.0.0",
   "scripts": {
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",

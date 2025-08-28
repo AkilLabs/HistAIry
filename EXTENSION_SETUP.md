@@ -11,7 +11,7 @@
 
 3. **Load the Extension**
    - Click "Load unpacked" button
-   - Select the **root directory**: `e:\Akil\history-extension\`
+   - Select the **root directory**: `e:\Akil\histairy\`
    - NOT the `dist` folder, but the main project folder
 
 4. **Start the Server**
@@ -19,7 +19,7 @@
    cd server
    node index.js
    ```
-   - Make sure you see: "History Extension server running on http://localhost:5000"
+   - Make sure you see: "HistAIry server running on http://localhost:5000"
 
 5. **Test the Extension**
    - Click the extension icon in Chrome toolbar

@@ -7746,15 +7746,6 @@ var require_sidebar = __commonJS({
       ["polyline", { points: "22 7 13.5 15.5 8.5 10.5 2 17", key: "126l90" }],
       ["polyline", { points: "16 7 22 7 22 13", key: "kwv8wd" }]
     ]);
-    const Header = () => {
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-5 text-center shadow-lg", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2 mb-1", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { size: 24 }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-lg font-semibold", children: "History Assistant" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm opacity-90", children: "Your intelligent browsing companion" })
-      ] });
-    };
     const useHistory = () => {
       const [history, setHistory] = reactExports.useState([]);
       const [loading, setLoading] = reactExports.useState(false);
@@ -7841,25 +7832,25 @@ var require_sidebar = __commonJS({
           window.open(item.url, "_blank", "noopener,noreferrer");
         }
       };
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 hover:border-primary-300", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-semibold text-gray-700 mb-2 line-clamp-2", children: item.title || "No title" }),
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-accent transition-all duration-200 group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-black mb-2 line-clamp-2 group-hover:text-black", children: item.title || "No title" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "button",
           {
             onClick: handleClick,
-            className: "flex items-center gap-2 text-xs text-primary-600 hover:text-primary-700 transition-colors group w-full text-left",
+            className: "flex items-center gap-2 text-xs text-gray-600 hover:text-black transition-colors group/link w-full text-left",
             children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate flex-1", children: item.url }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 12, className: "opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate flex-1 font-mono", children: item.url }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { size: 14, className: "opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 text-accent" })
             ]
           }
         )
       ] });
     };
     const LoadingSpinner = ({ text = "Loading..." }) => {
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2 text-gray-500", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-4 h-4 border-2 border-gray-300 border-t-primary-500 rounded-full animate-spin" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm", children: text })
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3 text-gray-600", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-5 h-5 border-2 border-gray-300 border-t-accent rounded-full animate-spin" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium text-black", children: text })
       ] });
     };
     const HistoryTab = () => {
@@ -7874,49 +7865,49 @@ var require_sidebar = __commonJS({
         { value: "7d", label: "Last 7 Days" },
         { value: "30d", label: "Last 30 Days" }
       ];
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full p-5", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 mb-5", children: [
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full p-6 bg-white", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 mb-6", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "select",
             {
               value: timeRange,
               onChange: (e) => setTimeRange(e.target.value),
-              className: "flex-1 px-3 py-2 border-2 border-gray-200 rounded-lg text-sm focus:border-primary-500 focus:outline-none transition-colors",
+              className: "flex-1 px-4 py-3 border border-gray-300 rounded-xl text-sm text-black focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none transition-all bg-white hover:bg-gray-50",
               "aria-label": "Time range selector",
               children: timeRangeOptions.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: option.value, children: option.label }, option.value))
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
               onClick: () => loadHistory(timeRange),
               disabled: loading,
-              className: "px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg text-sm font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(RefreshCw, { size: 14, className: loading ? "animate-spin" : "" }),
-                "Load"
-              ] })
+              className: "px-6 py-3 bg-accent text-black rounded-xl text-sm font-medium hover:bg-accent/90 focus:ring-2 focus:ring-accent/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(RefreshCw, { size: 16, className: loading ? "animate-spin" : "" }),
+                "Refresh"
+              ]
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto mb-5", children: loading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, { text: "Loading history..." }) }) : history.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center h-32 text-gray-500", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto mb-6", children: loading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, { text: "Loading history..." }) }) : history.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center h-32 text-gray-600", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { size: 48, className: "mb-3 opacity-50" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center", children: "No history found for the selected time range." })
-        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: history.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx(HistoryItem, { item }, `${item.url}-${index2}`)) }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-gray-200 pt-5", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center text-black", children: "No history found for the selected time range." })
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: history.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx(HistoryItem, { item }, `${item.url}-${index2}`)) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-gray-200 pt-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
               onClick: () => summarizeHistory(history),
               disabled: summarizing || history.length === 0,
-              className: "w-full mb-3 px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg text-sm font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Bot, { size: 14 }),
-                summarizing ? "Generating..." : "AI Summary"
-              ] })
+              className: "w-full mb-4 px-6 py-3 bg-accent text-black rounded-xl text-sm font-medium hover:bg-accent/90 focus:ring-2 focus:ring-accent/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Bot, { size: 16 }),
+                summarizing ? "Generating Summary..." : "Generate AI Summary"
+              ]
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50 rounded-lg p-4 min-h-[60px] flex items-center justify-center text-sm text-gray-600 leading-relaxed", children: summarizing ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, { text: "Generating AI summary..." }) : summary ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: summary }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center text-gray-400", children: 'Click "AI Summary" to get an intelligent summary of your browsing history.' }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50 rounded-xl p-6 min-h-[80px] flex items-center justify-center text-sm text-black leading-relaxed border border-gray-200", children: summarizing ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, { text: "Analyzing your browsing patterns..." }) : summary ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center", children: summary }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center text-gray-600", children: "Generate an AI-powered summary of your browsing activity to discover patterns and insights." }) })
         ] })
       ] });
     };
@@ -8008,12 +7999,35 @@ var require_sidebar = __commonJS({
     };
     const Message = ({ message }) => {
       const formatMessageContent = (content) => {
-        const urlPattern = /(https?:\/\/[^\s\)\]\}\,]+)/g;
-        return content.replace(urlPattern, (url) => {
+        let processedContent = content.replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, (match, text, url) => {
           const cleanUrl = url.replace(/[.,;!?\)\]\}]+$/, "");
-          const trailingPunct = url.substring(cleanUrl.length);
-          return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">${cleanUrl}<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>${trailingPunct}`;
+          return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 underline decoration-1 underline-offset-2 font-medium">${text}<svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>`;
         });
+        const parts = processedContent.split(/(<[^>]*>)/g);
+        let result = "";
+        let insideLink = false;
+        for (let i = 0; i < parts.length; i++) {
+          const part = parts[i];
+          if (part.startsWith("<a ")) {
+            insideLink = true;
+            result += part;
+          } else if (part === "</a>") {
+            insideLink = false;
+            result += part;
+          } else if (part.startsWith("<") && part.endsWith(">")) {
+            result += part;
+          } else if (!insideLink) {
+            const urlPattern = /(https?:\/\/[^\s\)\]\}\,<]+)/g;
+            result += part.replace(urlPattern, (url) => {
+              const cleanUrl = url.replace(/[.,;!?\)\]\}]+$/, "");
+              const trailingPunct = url.substring(cleanUrl.length);
+              return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 underline decoration-1 underline-offset-2 font-medium">${cleanUrl}<svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>${trailingPunct}`;
+            });
+          } else {
+            result += part;
+          }
+        }
+        return result;
       };
       const handleLinkClick = (e) => {
         if (e.target.tagName === "A") {
@@ -8029,13 +8043,13 @@ var require_sidebar = __commonJS({
       return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `flex ${message.isUser ? "justify-end" : "justify-start"} animate-fade-in`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         "div",
         {
-          className: `max-w-[80%] rounded-lg p-3 text-sm ${message.isUser ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white" : "bg-gray-50 border border-gray-200 text-gray-700"}`,
-          children: message.isUser ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "whitespace-pre-wrap", children: message.content }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+          className: `max-w-[100%] rounded-xl p-4 text-sm ${message.isUser ? "bg-[#a6ffdd] backdrop-blur-3xl border text-gray-800 shadow-sm" : "bg-transparent backdrop-blur-3xl border border-gray-100 text-gray-800"}`,
+          children: message.isUser ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "whitespace-pre-wrap font-medium", children: message.content }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
             "div",
             {
               className: "whitespace-pre-wrap leading-relaxed",
               dangerouslySetInnerHTML: {
-                __html: formatMessageContent(message.content).replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/\*(.*?)\*/g, "<em>$1</em>").replace(/`(.*?)`/g, '<code class="bg-gray-200 px-1 py-0.5 rounded text-xs">$1</code>').replace(/\n\s*•\s/g, "\n• ").replace(/\n/g, "<br>")
+                __html: formatMessageContent(message.content).replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>').replace(/\*(.*?)\*/g, '<em class="italic">$1</em>').replace(/`(.*?)`/g, '<code class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs font-mono">$1</code>').replace(/\n\s*•\s/g, "\n• ").replace(/\n/g, "<br>")
               },
               onClick: handleLinkClick
             }
@@ -8077,46 +8091,43 @@ var require_sidebar = __commonJS({
         textarea.style.height = "auto";
         textarea.style.height = Math.min(textarea.scrollHeight, 80) + "px";
       };
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 p-4 border-b border-gray-200", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full bg-white", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 p-6 border-b border-gray-200", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
               onClick: clearChat,
-              className: "flex-1 px-3 py-2 bg-white border-2 border-gray-200 rounded-lg text-xs text-center hover:border-primary-500 hover:text-primary-600 transition-all duration-200",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-1", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { size: 12 }),
-                "Clear"
-              ] })
+              className: "flex-1 px-4 py-3 bg-white border border-gray-300 rounded-xl text-sm text-center text-black hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 flex items-center justify-center gap-2",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { size: 16 }),
+                "Clear Chat"
+              ]
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
               onClick: analyzeHistory,
               disabled: loading,
-              className: "flex-1 px-3 py-2 bg-white border-2 border-gray-200 rounded-lg text-xs text-center hover:border-primary-500 hover:text-primary-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-1", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { size: 12 }),
+              className: "flex-1 px-4 py-3 bg-accent text-black rounded-xl text-sm text-center hover:bg-accent/90 focus:ring-2 focus:ring-accent/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { size: 16 }),
                 "Analyze History"
-              ] })
+              ]
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto p-4", children: messages.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center h-full text-gray-500", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { size: 48, className: "mb-3 opacity-50" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-center text-sm", children: [
-            "Start a conversation!",
-            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-            "Ask me anything about your browsing history."
-          ] })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto p-6", children: messages.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center h-full text-gray-600", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { size: 24, className: "text-white" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-medium text-black mb-2", children: "Start a Conversation" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-center text-sm text-gray-600 max-w-sm", children: "Ask me anything about your browsing history. I can help you find patterns, summarize your activity, or answer specific questions." })
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
           messages.map((message, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Message, { message }, index2)),
-          loading && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-start", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50 border border-gray-200 rounded-lg p-3 max-w-[80%]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, { text: "Thinking..." }) }) }),
+          loading && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-start", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50 border border-gray-200 rounded-xl p-4 max-w-[80%]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, { text: "Thinking..." }) }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: messagesEndRef })
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-4 border-t border-gray-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "flex gap-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 flex items-end bg-gray-50 border-2 border-gray-200 rounded-lg focus-within:border-primary-500 transition-colors", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6 border-t border-gray-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "flex gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 flex items-end bg-white border border-gray-300 rounded-xl focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/20 transition-all", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             "textarea",
             {
               ref: textareaRef,
@@ -8124,7 +8135,7 @@ var require_sidebar = __commonJS({
               onChange: handleInputChange,
               onKeyDown: handleKeyDown,
               placeholder: "Ask me about your browsing history...",
-              className: "flex-1 bg-transparent border-none outline-none p-3 text-sm resize-none max-h-20 min-h-[20px]",
+              className: "flex-1 bg-transparent border-none outline-none p-4 text-sm text-black resize-none max-h-20 min-h-[20px] placeholder-gray-500",
               rows: 1,
               disabled: loading
             }
@@ -8134,8 +8145,8 @@ var require_sidebar = __commonJS({
             {
               type: "submit",
               disabled: loading || !inputValue.trim(),
-              className: "px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { size: 16 })
+              className: "px-5 py-3 bg-accent text-black rounded-xl hover:bg-accent/90 focus:ring-2 focus:ring-accent/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { size: 18 })
             }
           )
         ] }) })
@@ -8143,41 +8154,45 @@ var require_sidebar = __commonJS({
     };
     function App() {
       const [activeTab, setActiveTab] = reactExports.useState("history");
-      return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-screen flex flex-col bg-gradient-to-br from-primary-500 to-secondary-500", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full bg-white", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex overflow-hidden", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 overflow-hidden", children: [
-            activeTab === "history" && /* @__PURE__ */ jsxRuntimeExports.jsx(HistoryTab, {}),
-            activeTab === "chat" && /* @__PURE__ */ jsxRuntimeExports.jsx(ChatTab, {})
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "h-screen flex flex-col bg-white", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white border-b border-gray-200 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between px-6 py-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-accent rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { size: 18, className: "text-black" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-lg font-semibold text-black", children: "HistAIry" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-gray-600", children: "Your intelligent browsing companion" })
+            ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-20 bg-gray-50 border-l border-gray-200 flex flex-col", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "flex items-center gap-1 bg-gray-100 rounded-lg p-1", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "button",
               {
-                className: `flex-1 py-6 px-2 text-xs font-medium transition-all duration-300 relative flex flex-col items-center justify-center gap-2 ${activeTab === "history" ? "text-primary-600 bg-white border-l-2 border-primary-500" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`,
+                className: `px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-2 ${activeTab === "history" ? "bg-accent text-black shadow-sm" : "text-black hover:text-black hover:bg-gray-200"}`,
                 onClick: () => setActiveTab("history"),
                 children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(History, { size: 20 }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-center leading-tight", children: "History" }),
-                  activeTab === "history" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500" })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(History, { size: 16 }),
+                  "History"
                 ]
               }
             ),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "button",
               {
-                className: `flex-1 py-6 px-2 text-xs font-medium transition-all duration-300 relative flex flex-col items-center justify-center gap-2 ${activeTab === "chat" ? "text-primary-600 bg-white border-l-2 border-primary-500" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"}`,
+                className: `px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 flex items-center gap-2 ${activeTab === "chat" ? "bg-accent text-black shadow-sm" : "text-black hover:text-black hover:bg-gray-200"}`,
                 onClick: () => setActiveTab("chat"),
                 children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { size: 20 }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-center leading-tight", children: "Chat" }),
-                  activeTab === "chat" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500" })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { size: 16 }),
+                  "Chat"
                 ]
               }
             )
           ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 overflow-hidden", children: [
+          activeTab === "history" && /* @__PURE__ */ jsxRuntimeExports.jsx(HistoryTab, {}),
+          activeTab === "chat" && /* @__PURE__ */ jsxRuntimeExports.jsx(ChatTab, {})
         ] })
-      ] }) });
+      ] });
     }
     const index = "";
     client.createRoot(document.getElementById("root")).render(
