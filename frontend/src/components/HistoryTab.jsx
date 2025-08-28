@@ -26,7 +26,7 @@ const HistoryTab = () => {
         <select
           value={timeRange}
           onChange={(e) => setTimeRange(e.target.value)}
-          className="flex-1 px-4 py-3 border border-gray-300 rounded-xl text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 focus:outline-none transition-all bg-gray-50 hover:bg-white"
+          className="flex-1 px-4 py-3 border border-gray-300 rounded-xl text-sm text-black focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none transition-all bg-white hover:bg-gray-50"
           aria-label="Time range selector"
         >
           {timeRangeOptions.map(option => (
@@ -39,7 +39,7 @@ const HistoryTab = () => {
         <button
           onClick={() => loadHistory(timeRange)}
           disabled={loading}
-          className="px-6 py-3 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="px-6 py-3 bg-accent text-black rounded-xl text-sm font-medium hover:bg-accent/90 focus:ring-2 focus:ring-accent/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
           <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
           Refresh
@@ -54,9 +54,9 @@ const HistoryTab = () => {
             <LoadingSpinner text="Loading history..." />
           </div>
         ) : history.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-32 text-gray-500">
+          <div className="flex flex-col items-center justify-center h-32 text-gray-600">
             <BookOpen size={48} className="mb-3 opacity-50" />
-            <p className="text-center">
+            <p className="text-center text-black">
               No history found for the selected time range.
             </p>
           </div>
@@ -70,23 +70,23 @@ const HistoryTab = () => {
       </div>
 
       {/* Summary Section */}
-      <div className="border-t border-gray-100 pt-6">
+      <div className="border-t border-gray-200 pt-6">
         <button
           onClick={() => summarizeHistory(history)}
           disabled={summarizing || history.length === 0}
-          className="w-full mb-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl text-sm font-medium hover:from-purple-700 hover:to-blue-700 focus:ring-2 focus:ring-purple-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full mb-4 px-6 py-3 bg-accent text-black rounded-xl text-sm font-medium hover:bg-accent/90 focus:ring-2 focus:ring-accent/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           <Bot size={16} />
           {summarizing ? 'Generating Summary...' : 'Generate AI Summary'}
         </button>
         
-        <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 min-h-[80px] flex items-center justify-center text-sm text-gray-700 leading-relaxed border border-gray-100">
+        <div className="bg-gray-50 rounded-xl p-6 min-h-[80px] flex items-center justify-center text-sm text-black leading-relaxed border border-gray-200">
           {summarizing ? (
             <LoadingSpinner text="Analyzing your browsing patterns..." />
           ) : summary ? (
             <p className="text-center">{summary}</p>
           ) : (
-            <p className="text-center text-gray-500">
+            <p className="text-center text-gray-600">
               Generate an AI-powered summary of your browsing activity to discover patterns and insights.
             </p>
           )}
