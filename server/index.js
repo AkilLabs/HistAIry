@@ -96,5 +96,5 @@ app.delete('/chat/:sessionId', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`History Extension server running on http://localhost:${port}`);
+  console.log(`HistAIry server running on http://localhost:${port}`);
 });

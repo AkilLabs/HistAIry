@@ -17,7 +17,7 @@ function App() {
               <Clock size={18} className="text-black" />
             </div>
             <div>
-              <h1 className="text-lg font-semibold text-black">History Assistant</h1>
+              <h1 className="text-lg font-semibold text-black">HistAIry</h1>
               <p className="text-xs text-gray-600">Your intelligent browsing companion</p>
             </div>
           </div>

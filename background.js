@@ -1,4 +1,4 @@
-// Background script for the History Extension
+// Background script for HistAIry
 // This handles opening the sidebar when the extension icon is clicked
 
 chrome.action.onClicked.addListener((tab) => {

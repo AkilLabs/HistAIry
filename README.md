@@ -1,4 +1,4 @@
-# History Assistant - React Edition
+# HistAIry - React Edition
 
 A modern Chrome extension built with React, Vite, and Tailwind CSS for browsing history management and AI-powered chat assistance.
 
@@ -23,7 +23,7 @@ A modern Chrome extension built with React, Vite, and Tailwind CSS for browsing 
 ## 📁 Project Structure
 
 ```
-history-extension/
+histAIry/
 ├── frontend/                 # React frontend
 │   ├── src/
 │   │   ├── components/      # React components
@@ -98,7 +98,7 @@ npm run build:extension
 1. Open Chrome and go to `chrome://extensions/`
 2. Enable "Developer mode"
 3. Click "Load unpacked"
-4. Select the root directory (`history-extension/`)
+4. Select the root directory (`histAIry/`)
 
 ### 3. Start the Backend
 ```bash

@@ -8159,7 +8159,7 @@ var require_sidebar = __commonJS({
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-accent rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { size: 18, className: "text-black" }) }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-lg font-semibold text-black", children: "History Assistant" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-lg font-semibold text-black", children: "HistAIry" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-gray-600", children: "Your intelligent browsing companion" })
             ] })
           ] }),
