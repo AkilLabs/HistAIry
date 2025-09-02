@@ -1,6 +1,6 @@
-# HistAIry - React Edition
+# HistAIry
 
-![Extension Icon](icon.png)
+![Extension Icon](icon.gif)
 
 A modern Chrome extension built with React, Vite, and Tailwind CSS for browsing history management and AI-powered chat assistance.
 
