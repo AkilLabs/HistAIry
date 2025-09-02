@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { History, MessageCircle, Clock } from 'lucide-react'
+import { History, MessageCircle } from 'lucide-react'
 import HistoryTab from './components/HistoryTab'
 import ChatTab from './components/ChatTab'
+import Footer from './components/Footer'
 
 function App() {
   const [activeTab, setActiveTab] = useState('history')
@@ -13,8 +14,8 @@ function App() {
         <div className="flex items-center justify-between px-6 py-4">
           {/* Logo/Title */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-              <Clock size={18} className="text-black" />
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+              <img src="/icon.png" alt="HistAIry" className="w-8 h-8" />
             </div>
             <div>
               <h1 className="text-lg font-semibold text-black">HistAIry</h1>
@@ -56,6 +57,9 @@ function App() {
         {activeTab === 'history' && <HistoryTab />}
         {activeTab === 'chat' && <ChatTab />}
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

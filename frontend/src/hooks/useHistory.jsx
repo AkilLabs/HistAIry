@@ -6,22 +6,11 @@ export const useHistory = () => {
   const [summary, setSummary] = useState('')
   const [summarizing, setSummarizing] = useState(false)
 
-  const getStartTime = (range) => {
-    const now = Date.now()
-    const oneHour = 1000 * 60 * 60
-    switch (range) {
-      case '1h': return now - oneHour
-      case '24h': return now - (oneHour * 24)
-      case '7d': return now - (oneHour * 24 * 7)
-      case '30d': return now - (oneHour * 24 * 30)
-      default: return now - (oneHour * 24)
-    }
-  }
-
-  const loadHistory = async (range = '24h') => {
+  const loadHistory = async () => {
     setLoading(true)
     try {
-      const startTime = getStartTime(range)
+      // Default to last 24 hours
+      const startTime = Date.now() - (1000 * 60 * 60 * 24)
       
       if (typeof chrome !== 'undefined' && chrome.history) {
         chrome.history.search(

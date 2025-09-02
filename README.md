@@ -1,5 +1,7 @@
 # HistAIry - React Edition
 
+![Extension Icon](icon.png)
+
 A modern Chrome extension built with React, Vite, and Tailwind CSS for browsing history management and AI-powered chat assistance.
 
 ## 🎯 Features
@@ -23,7 +25,7 @@ A modern Chrome extension built with React, Vite, and Tailwind CSS for browsing 
 ## 📁 Project Structure
 
 ```
-histAIry/
+history-extension/
 ├── frontend/                 # React frontend
 │   ├── src/
 │   │   ├── components/      # React components
@@ -32,6 +34,7 @@ histAIry/
 │   │   │   ├── ChatTab.jsx
 │   │   │   ├── HistoryItem.jsx
 │   │   │   ├── Message.jsx
+│   │   │   ├── Footer.jsx
 │   │   │   └── LoadingSpinner.jsx
 │   │   ├── hooks/           # Custom React hooks
 │   │   │   ├── useHistory.jsx
@@ -39,21 +42,35 @@ histAIry/
 │   │   ├── App.jsx          # Main app component
 │   │   ├── main.jsx         # React entry point
 │   │   └── index.css        # Global styles
-│   ├── popup.html           # Extension popup HTML
+│   ├── sidebar.html         # Extension sidebar HTML
 │   ├── package.json         # Frontend dependencies
 │   ├── vite.config.js       # Vite configuration
-│   └── tailwind.config.js   # Tailwind configuration
+│   ├── tailwind.config.js   # Tailwind configuration
+│   └── postcss.config.cjs   # PostCSS configuration
 ├── server/                  # Backend API
 │   ├── index.js            # Express server
 │   └── package.json        # Backend dependencies
 ├── dist/                   # Built extension files
+├── background.js           # Chrome extension background script
 ├── manifest.json           # Chrome extension manifest
 └── icon.png               # Extension icon
 ```
 
 ## 🚀 Development Setup
 
-### 1. Install Dependencies
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn package manager
+- Google API key for Generative AI (for backend)
+
+### 1. Clone and Setup
+```bash
+# Clone the repository
+git clone <repository-url>
+cd history-extension
+```
+
+### 2. Install Dependencies
 
 ```bash
 # Install frontend dependencies
@@ -65,23 +82,33 @@ cd ../server
 npm install
 ```
 
-### 2. Development Mode
+### 3. Environment Configuration
+Create a `.env` file in the server directory:
+```env
+GOOGLE_API_KEY=your_google_generative_ai_api_key_here
+```
 
+### 4. Development Mode
+
+Start the backend server:
 ```bash
-# Start the backend server
 cd server
 node index.js
+```
 
-# In another terminal, start the frontend development server
+In another terminal, start the frontend development server:
+```bash
 cd frontend
 npm run dev
 ```
 
-### 3. Build for Extension
+The server will run on `http://localhost:5000` and the frontend dev server will run on `http://localhost:5173`.
+
+### 5. Build for Extension
 
 ```bash
 cd frontend
-npm run build:extension
+npm run build
 ```
 
 This creates optimized files in the `dist/` directory.
@@ -91,20 +118,34 @@ This creates optimized files in the `dist/` directory.
 ### 1. Build the Extension
 ```bash
 cd frontend
-npm run build:extension
+npm run build
 ```
 
 ### 2. Load in Chrome
 1. Open Chrome and go to `chrome://extensions/`
-2. Enable "Developer mode"
+2. Enable "Developer mode" (toggle in top right)
 3. Click "Load unpacked"
-4. Select the root directory (`histAIry/`)
+4. Select the `dist/` directory that was created in step 1
 
-### 3. Start the Backend
+### 3. Start the Backend Server
+For AI chat functionality to work, start the backend server:
 ```bash
 cd server
 node index.js
 ```
+
+The server must be running on `http://localhost:5000` for the extension to communicate with the AI service.
+
+## 🔧 Available Scripts
+
+### Frontend (in `/frontend` directory)
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build the extension for production
+- `npm run preview` - Preview the built application
+
+### Server (in `/server` directory)
+- `node index.js` - Start the Express server
+- The server runs on port 5000 by default
 
 ## 🎨 Components Overview
 
@@ -157,11 +198,12 @@ Custom theme with:
 - Custom animations (fade-in, slide-up)
 - Extension-specific responsive breakpoints
 
-## 🚀 Build Process
+## � Build Process
 
-1. **Development**: `npm run dev` - Hot reloading for development
-2. **Production**: `npm run build:extension` - Optimized build for extension
+1. **Development**: `npm run dev` - Hot reloading for development (frontend only)
+2. **Production**: `npm run build` - Optimized build for extension
 3. **Preview**: `npm run preview` - Preview the built application
+4. **Server**: `node index.js` - Start the backend API server
 
 ## 📊 Performance
 
@@ -188,7 +230,9 @@ Custom theme with:
 
 ## 📝 Notes
 
-- The extension requires the backend server to be running for AI features
-- URLs are handled through Chrome extension APIs for proper security
-- React components are optimized for the extension popup size (400x600px)
-- Tailwind classes are purged for optimal bundle size
+- **Backend Dependency**: The extension requires the backend server to be running on `http://localhost:5000` for AI chat features
+- **API Key Required**: Set up your Google Generative AI API key in the server's `.env` file
+- **URL Security**: URLs are handled through Chrome extension APIs for proper security
+- **React Optimization**: Components are optimized for the extension sidebar size
+- **Bundle Optimization**: Tailwind classes are purged for optimal bundle size
+- **Development**: Use `npm run dev` in frontend for development, and run `node index.js` in server directory
