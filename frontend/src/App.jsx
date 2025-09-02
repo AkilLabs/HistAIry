@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { History, MessageCircle } from 'lucide-react'
 import HistoryTab from './components/HistoryTab'
 import ChatTab from './components/ChatTab'
+import Footer from './components/Footer'
 
 function App() {
   const [activeTab, setActiveTab] = useState('history')
@@ -56,6 +57,9 @@ function App() {
         {activeTab === 'history' && <HistoryTab />}
         {activeTab === 'chat' && <ChatTab />}
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

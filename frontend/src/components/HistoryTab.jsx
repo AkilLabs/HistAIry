@@ -5,39 +5,18 @@ import HistoryItem from './HistoryItem'
 import LoadingSpinner from './LoadingSpinner'
 
 const HistoryTab = () => {
-  const [timeRange, setTimeRange] = useState('24h')
   const { history, loading, loadHistory, summarizeHistory, summary, summarizing } = useHistory()
 
   useEffect(() => {
-    loadHistory(timeRange)
-  }, [timeRange])
-
-  const timeRangeOptions = [
-    { value: '1h', label: 'Last Hour' },
-    { value: '24h', label: 'Today' },
-    { value: '7d', label: 'Last 7 Days' },
-    { value: '30d', label: 'Last 30 Days' },
-  ]
+    loadHistory()
+  }, [])
 
   return (
     <div className="flex flex-col h-full p-6 bg-white">
       {/* Controls */}
-      <div className="flex gap-3 mb-6">
-        <select
-          value={timeRange}
-          onChange={(e) => setTimeRange(e.target.value)}
-          className="flex-1 px-4 py-3 border border-gray-300 rounded-xl text-sm text-black focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none transition-all bg-white hover:bg-gray-50"
-          aria-label="Time range selector"
-        >
-          {timeRangeOptions.map(option => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-        
+      <div className="flex justify-end mb-6">
         <button
-          onClick={() => loadHistory(timeRange)}
+          onClick={() => loadHistory()}
           disabled={loading}
           className="px-6 py-3 bg-accent text-black rounded-xl text-sm font-medium hover:bg-accent/90 focus:ring-2 focus:ring-accent/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
